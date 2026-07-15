@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "echo \"Static HTML build complete\""
+    "build": "node -e \"const fs = require('fs'); ['dist', 'public'].forEach(d => { fs.mkdirSync(d, { recursive: true }); ['index.html', 'style.css', 'script.js'].forEach(f => fs.copyFileSync(f, d + '/' + f)); fs.cpSync('assets', d + '/assets', { recursive: true }); }); console.log('Build complete for all Vercel output directories');\""
   }
 }

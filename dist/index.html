@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F4EDE1" />
+  <title>Orchestra — One developer. A team of AI engineers.</title>
+  <meta name="description" content="Orchestra — AI-powered multi-agent platform for software development. Connect GitHub, deploy AI engineers, ship faster." />
+
+  <!-- Fonts: Fraunces (serif) + Inter (humanist sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- TailwindCSS (utility layer) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░░ LOADER ░░░ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__word" data-word>ORCHESTRA</span>
+      <span class="loader__sub" id="loaderSub">AI Engineering Platform</span>
+    </div>
+  </div>
+
+  <!-- ░░░ GRAIN OVERLAY ░░░ -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ░░░ TOP PROGRESS SCRUB ░░░ -->
+  <div class="scrub" aria-hidden="true"><span class="scrub__bar" id="scrubBar"></span></div>
+
+  <!-- ░░░ FLOATING NAV ░░░ -->
+  <header class="nav" id="nav">
+    <a href="#c01" class="nav__logo" data-goto="0">ORCHESTRA</a>
+    <button class="nav__chapter" id="navChapter" aria-haspopup="true" aria-expanded="false">
+      <span class="nav__num" id="navNum">01</span>
+      <span class="nav__name" id="navName">Home</span>
+      <span class="nav__menu-label">Menu</span>
+    </button>
+  </header>
+
+  <!-- ░░░ RIGHT DOT RAIL ░░░ -->
+  <nav class="rail" id="rail" aria-label="Навигация по главам">
+    <!-- dots injected by JS -->
+  </nav>
+
+  <!-- ░░░ OVERVIEW GRID (Esc / nav click) ░░░ -->
+  <div class="overview" id="overview" aria-hidden="true">
+    <div class="overview__head">
+      <span id="ovTitle">All Sections</span>
+      <button class="overview__close" id="overviewClose" aria-label="Close">Esc</button>
+    </div>
+    <div class="overview__grid" id="overviewGrid"><!-- injected --></div>
+  </div>
+
+  <main id="main">
+
+    <!-- ═══ 01 · HERO ═══ -->
+    <section class="chapter hero" id="c01" data-chapter data-name="Home" data-theme="light">
+      <div class="hero__wash" aria-hidden="true"></div>
+      <div class="hero__layout grid">
+        <div class="hero__content">
+          <span class="eyebrow" data-reveal id="heroEyebrow">ORCHESTRA — AI ENGINEERING PLATFORM</span>
+          <h1 class="hero__title">
+            <span class="line" data-line id="heroTitle1">One developer.</span>
+            <span class="line" data-line id="heroTitle2">A team of AI <em>engineers</em>.</span>
+          </h1>
+          <p class="hero__lead" data-reveal id="heroLead">
+            Connect your GitHub. Turn any repository into an AI-managed project.
+            Ship in days, not months.
+          </p>
+        </div>
+        <div class="hero__terminal-wrap" data-reveal>
+          <div class="hero__terminal">
+            <div class="hero__terminal-header">
+              <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+              <span class="hero__terminal-title">orchestra-cli — github.com/orchestradev/core</span>
+            </div>
+            <div class="hero__terminal-body">
+              <p class="t-cmd"><span>$</span> orchestra deploy --agents 4 --task "Refactor authentication module and write end-to-end tests"</p>
+              <p class="t-log t-success">✔ GitHub repository synced (branch: main → feat/auth-refactor)</p>
+              <p class="t-log t-info">ℹ Agent @architect assigned: analyzing 42 dependencies...</p>
+              <p class="t-log t-info">ℹ Agent @codegen assigned: writing OAuth2 token provider...</p>
+              <p class="t-log t-info">ℹ Agent @tester assigned: generating Jest test suites...</p>
+              <p class="t-log t-success">✔ 3 pull requests created and ready for automated merge.</p>
+              <p class="t-cursor"><span>$</span> <span class="cursor-blink"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 · THE PROBLEM ═══ -->
+    <section class="chapter problem" id="c02" data-chapter data-name="Problem" data-theme="light">
+      <div class="problem__content grid">
+        <span class="eyebrow" data-reveal id="probEyebrow">01 — THE PROBLEM</span>
+        <div class="problem__layout">
+          <div class="problem__text">
+            <h2 class="h1 splitlines" data-split id="probTitle">
+              Development became the bottleneck.
+            </h2>
+          </div>
+          <div class="problem__visual-grid" data-reveal>
+            <div class="problem__card problem__card--old">
+              <span class="problem__badge">Legacy Workflow</span>
+              <h4>Endless PR Backlogs</h4>
+              <p>Manual code reviews, broken CI/CD pipelines, context switching overhead, 60% repetitive boilerplate code.</p>
+            </div>
+            <div class="problem__card problem__card--new">
+              <span class="problem__badge problem__badge--active">Orchestra Era</span>
+              <h4>Parallel AI Execution</h4>
+              <p>Autonomous bug fixing, automated PR reviews, instant branch sync, 10x developer velocity.</p>
+            </div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat" data-reveal>
+            <span class="stat__num" data-count="60" data-suffix="%">0</span>
+            <span class="stat__cap" id="stat1Cap">of dev time lost to bugs, refactoring, and boilerplate</span>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__num" data-count="4" data-suffix="×">0</span>
+            <span class="stat__cap" id="stat2Cap">longer time-to-market than stakeholders expect</span>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__num" data-count="3" data-suffix="×">0</span>
+            <span class="stat__cap" id="stat3Cap">engineer cost increase in the last decade</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 · WHY NOW ═══ -->
+    <section class="chapter why" id="c03" data-chapter data-name="Why Now" data-theme="light">
+      <div class="why__content grid">
+        <span class="eyebrow" data-reveal id="whyEyebrow">02 — WHY NOW</span>
+        <h2 class="h1" data-split id="whyTitle">The moment is here.</h2>
+
+        <div class="why__grid">
+          <div class="bignum" data-reveal>
+            <span class="bignum__val" data-count="$1" data-suffix="T+">0</span>
+            <p class="bignum__cap" id="whyCap1">global software development market — growing every year</p>
+          </div>
+          <div class="bignum" data-reveal>
+            <span class="bignum__val" data-count="55" data-suffix="%">0</span>
+            <p class="bignum__cap" id="whyCap2">of developers now use AI coding tools daily</p>
+          </div>
+          <div class="bignum" data-reveal>
+            <span class="bignum__val" data-count="0" data-suffix="" data-text="0→1">0</span>
+            <p class="bignum__cap" id="whyCap3">platforms offering true multi-agent dev orchestration on GitHub</p>
+          </div>
+        </div>
+        <p class="note" data-reveal id="whyNote">LLMs reached production quality. AI coding went mainstream. The infrastructure layer is missing.</p>
+      </div>
+    </section>
+
+    <!-- ═══ 04 · THE SOLUTION (Redesigned Grid without Vertical Line) ═══ -->
+    <section class="chapter solution" id="c04" data-chapter data-name="Solution" data-theme="warm">
+      <div class="solution__head grid">
+        <span class="eyebrow" data-reveal id="solEyebrow">03 — SOLUTION</span>
+        <h2 class="h1" data-split id="solTitle">From repository to AI-managed project in minutes.</h2>
+      </div>
+
+      <div class="solution__grid grid" id="solutionGrid">
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">01</span>
+            <span class="step-card__tag" id="step1Tag">GitHub Sync</span>
+          </div>
+          <h3 id="step1Title">Connect GitHub</h3>
+          <p id="step1Desc">Link your account. Import existing repositories instantly with full context awareness and branch mapping.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">02</span>
+            <span class="step-card__tag" id="step2Tag">Task Engine</span>
+          </div>
+          <h3 id="step2Title">Create Tasks</h3>
+          <p id="step2Desc">Define tasks in plain language. Our routing engine breaks down complex features into actionable steps.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">03</span>
+            <span class="step-card__tag" id="step3Tag">Parallel Workers</span>
+          </div>
+          <h3 id="step3Title">Deploy Agents</h3>
+          <p id="step3Desc">Multiple AI engineers work in parallel — each assigned a specialized role on an isolated git branch.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">04</span>
+            <span class="step-card__tag" id="step4Tag">Code & Refactor</span>
+          </div>
+          <h3 id="step4Title">Generate Code</h3>
+          <p id="step4Desc">Agents write production-ready code, resolve linter warnings, refactor legacy modules, and run unit tests.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">05</span>
+            <span class="step-card__tag" id="step5Tag">Automated PRs</span></div>
+          <h3 id="step5Title">Review & Merge</h3>
+          <p id="step5Desc">Pull requests are automatically opened with comprehensive diff summaries. You review, approve, and merge in one click.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">06</span>
+            <span class="step-card__tag" id="step6Tag">Continuous Delivery</span>
+          </div>
+          <h3 id="step6Title">Ship Faster</h3>
+          <p id="step6Desc">Your codebase evolves continuously with compounding engineering velocity — faster than any human team could scale.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 05 · PRODUCT DEMO ═══ -->
+    <section class="chapter demo" id="c05" data-chapter data-name="Product" data-theme="light">
+      <div class="demo__pin" id="demoPin">
+        <div class="demo__intro grid">
+          <div class="demo__intro-top">
+            <div>
+              <span class="eyebrow" data-reveal id="prodEyebrow">04 — PRODUCT</span>
+              <h2 class="h1" data-split id="prodTitle">Ten capabilities. One workspace.</h2>
+            </div>
+            <div class="demo__progress" data-reveal>
+              <span class="demo__indicator" id="demoIndicator">01 / 05</span>
+              <div class="demo__dots" id="demoDots" aria-hidden="true">
+                <span class="demo__dot is-active"></span>
+                <span class="demo__dot"></span>
+                <span class="demo__dot"></span>
+                <span class="demo__dot"></span>
+                <span class="demo__dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="demo__track" id="demoTrack">
+          <article class="device device--web">
+            <div class="device__frame">
+              <div class="device__placeholder"><span>Слайд 1<br><small>Поместите фото в assets/images/demo-1.png</small></span></div>
+              <img src="assets/images/demo-1.png" alt="GitHub Integration" class="device__screen" onerror="this.style.opacity='0'" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap1"><b>GitHub Integration</b> — connect repos, import branches, sync in real time</p>
+          </article>
+          <article class="device device--phone">
+            <div class="device__frame">
+              <div class="device__placeholder"><span>Слайд 2<br><small>Поместите фото в assets/images/demo-2.png</small></span></div>
+              <img src="assets/images/demo-2.png" alt="Task Management" class="device__screen" onerror="this.style.opacity='0'" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap2"><b>Task Management</b> — create tasks, assign agents, track progress</p>
+          </article>
+          <article class="device device--tg">
+            <div class="device__frame">
+              <div class="device__placeholder"><span>Слайд 3<br><small>Поместите фото в assets/images/demo-3.png</small></span></div>
+              <img src="assets/images/demo-3.png" alt="AI Code Generation" class="device__screen" onerror="this.style.opacity='0'" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap3"><b>AI Code Generation</b> — agents write, refactor, and fix code autonomously</p>
+          </article>
+          <article class="device device--courier">
+            <div class="device__frame">
+              <div class="device__placeholder"><span>Слайд 4<br><small>Поместите фото в assets/images/demo-4.png</small></span></div>
+              <img src="assets/images/demo-4.png" alt="Code Review & PRs" class="device__screen" onerror="this.style.opacity='0'" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap4"><b>Code Review & PRs</b> — automated review, diff analysis, pull request creation</p>
+          </article>
+          <article class="device device--admin">
+            <div class="device__frame">
+              <div class="device__placeholder"><span>Слайд 5<br><small>Поместите фото в assets/images/demo-5.png</small></span></div>
+              <img src="assets/images/demo-5.png" alt="Team Workspace" class="device__screen" onerror="this.style.opacity='0'" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap5"><b>Team Workspace</b> — shared environment, project monitoring, history tracking</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 06 · MARKET ═══ -->
+    <section class="chapter market" id="c06" data-chapter data-name="Market" data-theme="dark">
+      <div class="market__content grid">
+        <span class="eyebrow" data-reveal id="mktEyebrow">05 — MARKET</span>
+        <h2 class="h1" data-split id="mktTitle">Developer tools. A market that keeps growing.</h2>
+
+        <div class="market__showcase" data-reveal>
+          <div class="mkt-tier mkt-tier--tam">
+            <div class="mkt-tier__left">
+              <span class="mkt-badge mkt-badge--tam">TAM · 100%</span>
+              <h3 class="mkt-label" id="tamTitle">Total Addressable Market</h3>
+            </div>
+            <div class="mkt-tier__center">
+              <div class="mkt-bar-track"><div class="mkt-bar-fill" style="width: 100%; background: #F0B429;"></div></div>
+            </div>
+            <div class="mkt-tier__right">
+              <span class="mkt-number" data-count="650" data-prefix="$" data-suffix="B">0</span>
+              <p class="mkt-desc" id="tamDesc">Global software development market</p>
+            </div>
+          </div>
+
+          <div class="mkt-tier mkt-tier--sam">
+            <div class="mkt-tier__left">
+              <span class="mkt-badge mkt-badge--sam">SAM · 4.3%</span>
+              <h3 class="mkt-label" id="samTitle">Serviceable Addressable Market</h3>
+            </div>
+            <div class="mkt-tier__center">
+              <div class="mkt-bar-track"><div class="mkt-bar-fill" style="width: 45%; background: #F6AD55;"></div></div>
+            </div>
+            <div class="mkt-tier__right">
+              <span class="mkt-number" data-count="28" data-prefix="$" data-suffix="B">0</span>
+              <p class="mkt-desc" id="samDesc">AI developer tools &amp; engineering productivity software</p>
+            </div>
+          </div>
+
+          <div class="mkt-tier mkt-tier--som">
+            <div class="mkt-tier__left">
+              <span class="mkt-badge mkt-badge--som">SOM · 3-Year Goal</span>
+              <h3 class="mkt-label" id="somTitle">Serviceable Obtainable Market</h3>
+            </div>
+            <div class="mkt-tier__center">
+              <div class="mkt-bar-track"><div class="mkt-bar-fill" style="width: 18%; background: #fff;"></div></div>
+            </div>
+            <div class="mkt-tier__right">
+              <span class="mkt-number mkt-number--highlight" data-count="1.2" data-prefix="$" data-suffix="B">0</span>
+              <p class="mkt-desc" id="somDesc">Multi-agent dev platforms, 3-year addressable segment</p>
+            </div>
+          </div>
+        </div>
+        <p class="note" data-reveal id="mktNote">Sources: Gartner, IDC, a16z market research. Estimates based on published industry data.</p>
+      </div>
+    </section>
+
+    <!-- ═══ 07 · BUSINESS MODEL ═══ -->
+    <section class="chapter biz" id="c07" data-chapter data-name="Business Model" data-theme="light">
+      <div class="biz__content grid">
+        <span class="eyebrow" data-reveal id="bizEyebrow">06 — BUSINESS MODEL</span>
+        <h2 class="h1" data-split id="bizTitle">Seat-based. Usage-based. Enterprise.</h2>
+
+        <div class="biz__cards">
+          <article class="card" data-reveal tabindex="0">
+            <span class="card__k">01</span>
+            <h3 id="bizCard1Title">Developer Seats</h3>
+            <p id="bizCard1Desc">Per-seat subscription for individual developers and small teams.</p>
+            <span class="card__metric" data-count="29" data-suffix="/mo">0</span>
+          </article>
+          <article class="card" data-reveal tabindex="0">
+            <span class="card__k">02</span>
+            <h3 id="bizCard2Title">Team Plan</h3>
+            <p id="bizCard2Desc">Shared workspace, team repos, priority agent queues.</p>
+            <span class="card__metric">$99 / mo</span>
+          </article>
+          <article class="card" data-reveal tabindex="0">
+            <span class="card__k">03</span>
+            <h3 id="bizCard3Title">Usage-Based AI</h3>
+            <p id="bizCard3Desc">Pay per agent-hour for compute-intensive workloads.</p>
+            <span class="card__metric" id="bizCard3Metric">per agent-hour</span>
+          </article>
+          <article class="card" data-reveal tabindex="0">
+            <span class="card__k">04</span>
+            <h3 id="bizCard4Title">Enterprise</h3>
+            <p id="bizCard4Desc">Self-hosted deployment, SSO, audit logs, SLA.</p>
+            <span class="card__metric" id="bizCard4Metric">custom</span>
+          </article>
+        </div>
+        <p class="note" data-reveal id="bizNote">Land with individual developers. Expand into engineering teams. Convert to enterprise contracts.</p>
+      </div>
+    </section>
+
+    <!-- ═══ 08 · COMPETITIVE ═══ -->
+    <section class="chapter compete" id="c08" data-chapter data-name="Competition" data-theme="light">
+      <div class="compete__content grid">
+        <span class="eyebrow" data-reveal id="compEyebrow">07 — COMPETITIVE LANDSCAPE</span>
+        <h2 class="h1" data-split id="compTitle">Code assistants. We build the team.</h2>
+
+        <div class="comp-showcase" data-reveal aria-label="Competitive comparison matrix">
+          <div class="comp-header">
+            <span class="ch-label" id="compCol0">Feature / Criterion</span>
+            <span class="ch-hero"><span class="comp-badge">Platform</span><b id="compCol1">ORCHESTRA</b></span>
+            <span class="ch-other"><span class="comp-badge comp-badge--muted">Assistants</span><b id="compCol2">Copilot / Cursor</b></span>
+            <span class="ch-other"><span class="comp-badge comp-badge--muted">Traditional</span><b id="compCol3">Human Dev Team</b></span>
+          </div>
+
+          <div class="comp-pill-row">
+            <div class="cp-crit" id="compRow1Label"><b>Execution Model</b><span>How work is performed</span></div>
+            <div class="cp-hero"><div class="cp-hero-box" id="compRow1Us">✔ <b>Multi-Agent Parallelism</b> <small>(Isolated branches)</small></div></div>
+            <div class="cp-other" id="compRow1Other1">✖ Single-prompt IDE autocomplete</div>
+            <div class="cp-other" id="compRow1Other2">✔ Parallel but communication-heavy</div>
+          </div>
+
+          <div class="comp-pill-row">
+            <div class="cp-crit" id="compRow2Label"><b>Task Autonomy</b><span>Scope of autonomous work</span></div>
+            <div class="cp-hero"><div class="cp-hero-box" id="compRow2Us">✔ <b>End-to-End PR Delivery</b> <small>(Plan, code, review)</small></div></div>
+            <div class="cp-other" id="compRow2Other1">✖ Snippets &amp; file edits only</div>
+            <div class="cp-other" id="compRow2Other2">✔ Full cycle (weeks/months)</div>
+          </div>
+
+          <div class="comp-pill-row">
+            <div class="cp-crit" id="compRow3Label"><b>GitHub Integration</b><span>Repo awareness</span></div>
+            <div class="cp-hero"><div class="cp-hero-box" id="compRow3Us">✔ <b>100% Native Sync</b> <small>(Branch mapping)</small></div></div>
+            <div class="cp-other" id="compRow3Other1">~ Local file/workspace context</div>
+            <div class="cp-other" id="compRow3Other2">✔ Manual git workflows</div>
+          </div>
+
+          <div class="comp-pill-row">
+            <div class="cp-crit" id="compRow4Label"><b>Time to Ship</b><span>Delivery velocity</span></div>
+            <div class="cp-hero"><div class="cp-hero-box" id="compRow4Us">⚡ <b>Minutes to Hours</b> <small>(10x velocity)</small></div></div>
+            <div class="cp-other" id="compRow4Other1">⏱ Days (human dependent)</div>
+            <div class="cp-other" id="compRow4Other2">⏱ Weeks to Months</div>
+          </div>
+
+          <div class="comp-pill-row">
+            <div class="cp-crit" id="compRow5Label"><b>Cost Efficiency</b><span>Economics</span></div>
+            <div class="cp-hero"><div class="cp-hero-box" id="compRow5Us">💰 <b>~$2 / agent-hour</b> <small>(Pay as you use)</small></div></div>
+            <div class="cp-other" id="compRow5Other1">💲 $20/mo + human salary</div>
+            <div class="cp-other" id="compRow5Other2">💲 $80+ / hr ($150K+/yr)</div>
+          </div>
+        </div>
+        <p class="note" data-reveal id="compNote">Orchestra is the only platform that combines true multi-agent parallelism with full GitHub repository management — not just a code assistant.</p>
+      </div>
+    </section>
+
+    <!-- ═══ 09 · TECHNOLOGY ═══ -->
+    <section class="chapter tech" id="c09" data-chapter data-name="Technology" data-theme="dark">
+      <div class="tech__content grid">
+        <span class="eyebrow" data-reveal id="techEyebrow">08 — TECHNOLOGY</span>
+        <h2 class="h1" data-split id="techTitle">GitHub API. Multi-agent orchestration. Real-time sync.</h2>
+
+        <div class="tech__layout">
+          <figure class="tech__map ui-card ui-card--arch">
+            <div class="arch-diagram">
+              <div class="arch-box arch-box--gh"><span>GitHub Repository API</span></div>
+              <div class="arch-connector">↕ Real-time Branch & Context Sync</div>
+              <div class="arch-box arch-box--orch"><span>Orchestra Multi-Agent Routing Engine</span></div>
+              <div class="arch-connector">↕ Parallel Task Distribution</div>
+              <div class="arch-grid-workers">
+                <div class="worker-node">@codegen-1</div>
+                <div class="worker-node">@reviewer-2</div>
+                <div class="worker-node">@security-3</div>
+              </div>
+            </div>
+          </figure>
+          <ul class="tech__stack">
+            <li data-reveal><b id="tech1Title">GitHub API &amp; Context Management</b><span id="tech1Desc">Full repository awareness. Branch isolation per agent. Real-time sync.</span></li>
+            <li data-reveal><b id="tech2Title">Multi-Agent Orchestration</b><span id="tech2Desc">Task routing engine assigns work across parallel agents with defined roles.</span></li>
+            <li data-reveal><b id="tech3Title">LLM Infrastructure</b><span id="tech3Desc">Model-agnostic layer. Best-in-class LLMs for code generation and review.</span></li>
+            <li data-reveal><b id="tech4Title">Security Layer</b><span id="tech4Desc">OAuth, scoped permissions, no code stored outside your GitHub — ever.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 10 · ROADMAP ═══ -->
+    <section class="chapter road" id="c10" data-chapter data-name="Roadmap" data-theme="light">
+      <div class="road__content grid">
+        <span class="eyebrow" data-reveal id="roadEyebrow">09 — ROADMAP</span>
+        <h2 class="h1" data-split id="roadTitle">From MVP to AI Engineering Platform.</h2>
+
+        <ol class="timeline" id="timeline">
+          <span class="timeline__line" aria-hidden="true"><span id="timelineFill"></span></span>
+          <li class="milestone" data-node>
+            <span class="milestone__dot"></span>
+            <span class="milestone__date">2026 · Q3</span>
+            <h3>MVP</h3>
+            <p id="road1Desc">GitHub integration, single-agent task execution, PR generation, first 500 users.</p>
+          </li>
+          <li class="milestone" data-node>
+            <span class="milestone__dot"></span>
+            <span class="milestone__date">2026 · Q4</span>
+            <h3 id="road2Title">Multi-Agent</h3>
+            <p id="road2Desc">Parallel agents, role assignment, branch management, team workspaces.</p>
+          </li>
+          <li class="milestone" data-node>
+            <span class="milestone__dot"></span>
+            <span class="milestone__date">2027</span>
+            <h3 id="road3Title">Platform</h3>
+            <p id="road3Desc">Enterprise tier, self-hosted option, multi-repo support, integrations ecosystem.</p>
+          </li>
+          <li class="milestone" data-node>
+            <span class="milestone__dot"></span>
+            <span class="milestone__date">2028+</span>
+            <h3 id="road4Title">AI Engineering Platform</h3>
+            <p id="road4Desc">Full autonomous engineering lifecycle. Agents that plan, build, test, and deploy.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══ 11 · VISION (Refined Text Size) ═══ -->
+    <section class="chapter vision" id="c11" data-chapter data-name="Vision" data-theme="dark">
+      <div class="vision__media parallax" data-parallax="0.22" aria-hidden="true">
+        <div class="vision__bg-glow"></div>
+        <div class="vision__scrim"></div>
+      </div>
+      <div class="vision__content grid">
+        <span class="eyebrow eyebrow--light" data-reveal id="visEyebrow">10 — VISION</span>
+        <h2 class="vision__title">
+          <span class="line" data-line id="visTitle1">The future of development</span>
+          <span class="line" data-line id="visTitle2">is one human, leading a team of <em>AI engineers</em>.</span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- ═══ 12 · INVESTMENT ═══ -->
+    <section class="chapter invest" id="c12" data-chapter data-name="Investment" data-theme="warm">
+      <div class="invest__content grid">
+        <span class="eyebrow" data-reveal id="invEyebrow">11 — INVESTMENT</span>
+        <h2 class="h1" data-split id="invTitle">We are raising.</h2>
+
+        <div class="invest__ask" data-reveal>
+          <span class="invest__amount" data-count="2" data-prefix="$" data-suffix="M">0</span>
+          <span class="invest__round" id="invRound">Seed · SAFE</span>
+        </div>
+
+        <div class="invest__use">
+          <div class="use" data-reveal style="--w:40%">
+            <span class="use__label" id="invUse1">Engineering team</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">40%</span>
+          </div>
+          <div class="use" data-reveal style="--w:25%">
+            <span class="use__label" id="invUse2">LLM &amp; infrastructure</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">25%</span>
+          </div>
+          <div class="use" data-reveal style="--w:20%">
+            <span class="use__label" id="invUse3">Product development</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">20%</span>
+          </div>
+          <div class="use" data-reveal style="--w:15%">
+            <span class="use__label" id="invUse4">Growth &amp; international expansion</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">15%</span>
+          </div>
+        </div>
+        <p class="note" data-reveal id="invNote">18-month runway. Goal: 10K active developers, first enterprise contracts, Series A ready.</p>
+      </div>
+    </section>
+
+    <!-- ═══ 13 · THANK YOU / QR CODE ═══ -->
+    <section class="chapter thanks" id="c13" data-chapter data-name="Contact" data-theme="light">
+      <div class="thanks__content grid">
+        <span class="thanks__logo" id="thanksLogo">ORCHESTRA</span>
+        <p class="thanks__slogan" data-split id="thanksSlogan">One developer. A team of AI engineers.</p>
+
+        <div class="thanks__meta">
+          <div class="thanks__qr" data-reveal>
+            <a href="https://orchestra-sultan.vercel.app" target="_blank" rel="noopener noreferrer" class="thanks__qr-link" aria-label="Open orchestra-sultan.vercel.app">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https%3A%2F%2Forchestra-sultan.vercel.app&color=241C15&bgcolor=FBF6EC&margin=10" alt="QR Code Orchestra Sultan" width="160" height="160" class="thanks__qr-img" />
+            </a>
+            <span class="thanks__qr-cap">orchestra-sultan.vercel.app</span>
+          </div>
+          <ul class="thanks__contact" data-reveal>
+            <li><span>Website</span><a href="https://orchestra-sultan.vercel.app" target="_blank" class="thanks__link"><b>orchestra-sultan.vercel.app</b></a></li>
+            <li><span>Twitter / X</span><b>@orchestradev</b></li>
+            <li><span>Email</span><b>hello@orchestra.dev</b></li>
+            <li><span>GitHub</span><b>github.com/orchestradev</b></li>
+          </ul>
+        </div>
+      </div>
+      <footer class="foot">© 2026 Orchestra · AI Engineering Platform</footer>
+    </section>
+
+  </main>
+
+  <!-- ░░░ FLOATING LANG SWITCHER (RU / UZ / EN) ░░░ -->
+  <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language selection">
+    <button class="lang-btn is-active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="uz">UZ</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+
+  <!-- ░░░ FLOATING FULLSCREEN BUTTON ░░░ -->
+  <button class="fullscreen-btn" id="fullscreenBtn" aria-label="Toggle Fullscreen" title="Fullscreen">
+    <svg class="fullscreen-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path class="icon-expand" d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      <path class="icon-compress" d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" style="display: none;" />
+    </svg>
+    <span class="fullscreen-btn__text">Fullscreen</span>
+  </button>
+
+  <!-- ░░░ LIGHTBOX / ZOOM VIEWER ░░░ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
+    
+    <header class="lightbox__header">
+      <div class="lightbox__info">
+        <span class="lightbox__counter" id="lightboxCounter">01 / 05</span>
+        <h4 class="lightbox__title" id="lightboxTitle">GitHub Integration</h4>
+      </div>
+      <div class="lightbox__actions">
+        <button class="lightbox__btn" id="lightboxZoomIn" aria-label="Zoom In" title="Zoom In (+)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </button>
+        <button class="lightbox__btn" id="lightboxZoomOut" aria-label="Zoom Out" title="Zoom Out (-)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </button>
+        <button class="lightbox__btn" id="lightboxZoomReset" aria-label="Reset Zoom" title="Reset Zoom (0)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+        <button class="lightbox__btn lightbox__btn--close" id="lightboxClose" aria-label="Close" title="Close (Esc)">
+          ✕
+        </button>
+      </div>
+    </header>
+
+    <div class="lightbox__viewport" id="lightboxViewport">
+      <img class="lightbox__img" id="lightboxImg" src="" alt="Zoomed view" />
+    </div>
+
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image" title="Previous (←)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image" title="Next (→)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <footer class="lightbox__footer">
+      <p class="lightbox__caption" id="lightboxCaption"></p>
+    </footer>
+  </div>
+
+  <!-- ░░░ LIBRARIES ░░░ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
