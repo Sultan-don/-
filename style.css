@@ -23,8 +23,8 @@
   --sans:  "Inter", system-ui, -apple-system, sans-serif;
 
   --fs-hero: clamp(3.2rem, 9.5vw, 9.5rem);
-  --fs-h1:   clamp(2.4rem, 5.5vw, 4.5rem);
-  --fs-h2:   clamp(1.7rem, 3vw, 2.75rem);
+  --fs-h1:   clamp(2rem, 4.5vw, 3.5rem);
+  --fs-h2:   clamp(1.5rem, 2.8vw, 2.5rem);
   --fs-lead: clamp(1.1rem, 1.6vw, 1.45rem);
   --fs-body: 1.0625rem;
   --fs-cap:  0.8125rem;
@@ -93,7 +93,7 @@ html.lenis, html.lenis body { height: auto; }
   font-family: var(--serif);
   font-size: var(--fs-h1);
   font-weight: 460;
-  max-width: 18ch;
+  max-width: 30ch;
 }
 .grid { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
 .note {
@@ -737,47 +737,52 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 /* =========================================================
-   06 · MARKET (Tiered Horizon Showcase)
+   06 · MARKET (Bottom-Up Model)
    ========================================================= */
-.market__showcase {
-  display: flex; flex-direction: column; gap: clamp(10px, 1.8vh, 20px);
-  margin-top: clamp(14px, 2.5vh, 32px);
+.market-new-layout {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 24px);
+  margin-top: clamp(10px, 3vh, 24px);
 }
-.mkt-tier {
-  display: grid; grid-template-columns: 1.2fr 1.5fr 1fr; align-items: center; gap: clamp(12px, 2vw, 24px);
-  padding: clamp(14px, 2vh, 24px) clamp(16px, 3vw, 32px); border-radius: 16px;
+.mkt-segment {
   background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.4s var(--ease);
+  border-radius: 12px; padding: clamp(16px, 2vh, 24px);
+  transition: all 0.4s var(--ease); display: flex; flex-direction: column; gap: 16px;
 }
-.mkt-tier:hover {
-  background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.25);
-  transform: translateX(10px);
+.mkt-segment:hover {
+  background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
 }
-.mkt-tier--som {
-  background: rgba(240, 180, 41, 0.07); border-color: rgba(240, 180, 41, 0.35);
-  box-shadow: 0 20px 50px -15px rgba(240, 180, 41, 0.15);
+.mkt-segment-title {
+  font-family: var(--serif); font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+  color: #fff; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px; margin: 0;
 }
-.mkt-tier__left { display: flex; flex-direction: column; gap: 8px; }
-.mkt-badge {
-  display: inline-block; width: max-content; font-size: 0.7rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.15em; padding: 4px 12px; border-radius: 999px;
-  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8);
+.mkt-stats-grid {
+  display: flex; flex-direction: column; gap: 16px;
 }
-.mkt-badge--tam { color: #F0B429; background: rgba(240,180,41,0.15); }
-.mkt-badge--sam { color: #F6AD55; background: rgba(246,173,85,0.15); }
-.mkt-badge--som { color: #181410; background: #F0B429; }
-.mkt-label { font-family: var(--serif); font-size: clamp(1.15rem, 1.5vw, 1.4rem); color: #fff; font-weight: 500; }
-.mkt-tier__center { width: 100%; padding-inline: var(--s3); }
-.mkt-bar-track { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
-.mkt-bar-fill { height: 100%; border-radius: 4px; transition: width 1.5s var(--ease); }
-.mkt-tier__right { display: flex; flex-direction: column; gap: 4px; text-align: right; }
-.mkt-number { font-family: var(--serif); font-size: clamp(2rem, 3.2vw, 3.2rem); font-weight: 600; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
-.mkt-number--highlight { color: #F0B429; }
-.mkt-desc { font-size: clamp(0.82rem, 1vw, 0.92rem); color: #B7A78F; max-width: 32ch; margin-left: auto; line-height: 1.4; }
+.mkt-stat {
+  display: flex; flex-direction: column; gap: 2px;
+}
+.mkt-stat-label {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: #F0B429;
+}
+.mkt-stat-value {
+  font-family: var(--serif); font-size: clamp(2rem, 2.5vw, 2.5rem);
+  font-weight: 600; color: #fff; line-height: 1; font-variant-numeric: tabular-nums;
+}
+.mkt-stat-sub {
+  font-size: 0.8rem; color: #B7A78F; line-height: 1.3;
+}
+.mkt-source {
+  font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-top: auto;
+  line-height: 1.4; font-style: italic;
+}
 @media (max-width: 900px) {
-  .mkt-tier { grid-template-columns: 1fr; text-align: left; gap: 12px; padding: 18px; }
-  .mkt-tier__right { text-align: left; }
-  .mkt-desc { margin-left: 0; }
+  .market-new-layout { grid-template-columns: 1fr; }
+  .mkt-stats-grid { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
+  .mkt-segment { padding: 16px; gap: 12px; }
+  .mkt-source { margin-top: 8px; }
 }
 
 /* =========================================================
@@ -809,7 +814,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 .comp-header {
   display: grid;
-  grid-template-columns: 1.3fr 1.4fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
   align-items: center;
   padding: 0 20px 8px 20px;
   border-bottom: 1.5px solid var(--line);
@@ -830,9 +835,9 @@ html.lenis, html.lenis body { height: auto; }
 
 .comp-pill-row {
   display: grid;
-  grid-template-columns: 1.3fr 1.4fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1.4fr 1fr 1fr 1fr;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   padding: 12px 20px;
   border-radius: 16px;
   background: var(--surface);
@@ -888,7 +893,7 @@ html.lenis, html.lenis body { height: auto; }
 /* =========================================================
    10 · ROADMAP (timeline)
    ========================================================= */
-.timeline { position: relative; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr);
+.timeline { position: relative; list-style: none; display: grid; grid-template-columns: repeat(5, 1fr);
   gap: clamp(12px, 1.5vh, 24px); margin-top: clamp(16px, 3vh, 56px); }
 .timeline__line { position: absolute; top: 8px; left: 0; right: 0; height: 2px; background: var(--line); }
 .timeline__line span { display: block; height: 100%; width: 0%; background: var(--primary); }
@@ -923,12 +928,12 @@ html.lenis, html.lenis body { height: auto; }
 .invest__amount { font-family: var(--serif); font-size: clamp(3.5rem, 9vw, 8rem); line-height: 0.9;
   color: var(--primary); font-variant-numeric: tabular-nums; }
 .invest__round { font-size: var(--fs-cap); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
-.invest__use { display: flex; flex-direction: column; gap: var(--s4); max-width: 720px; }
-.use { display: grid; grid-template-columns: 220px 1fr auto; align-items: center; gap: var(--s4); }
-.use__label { color: var(--ink); font-size: 0.95rem; }
-.use__bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.invest__use { display: flex; flex-direction: column; gap: clamp(8px, 1vh, 12px); max-width: 720px; }
+.use { display: grid; grid-template-columns: 220px 1fr auto; align-items: center; gap: clamp(12px, 1.5vh, 16px); }
+.use__label { color: var(--ink); font-size: 0.85rem; font-weight: 500; }
+.use__bar { height: 6px; background: var(--line); border-radius: 4px; overflow: hidden; }
 .use__bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--primary)); }
-.use__val { font-family: var(--serif); color: var(--primary); font-variant-numeric: tabular-nums; }
+.use__val { font-family: var(--serif); color: var(--primary); font-variant-numeric: tabular-nums; font-size: 0.9rem; }
 
 /* =========================================================
    13 · THANK YOU / QR CODE
